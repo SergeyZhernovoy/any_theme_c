@@ -1,3 +1,0 @@
-/home/dort/Projects/any_theme_c/TicTacToe/TicTacToe/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/dort/Projects/any_theme_c/TicTacToe/TicTacToe/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/dort/Projects/any_theme_c/TicTacToe/TicTacToe/cmake-build-debug/CMakeFiles/TicTacToe.dir
