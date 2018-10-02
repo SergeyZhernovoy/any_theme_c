@@ -151,7 +151,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BaseData.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PresidentSingleton.h" />
     <ClInclude Include="Sample.h" />
   </ItemGroup>
   <ItemGroup>

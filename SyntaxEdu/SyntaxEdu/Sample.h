@@ -23,6 +23,30 @@ public:
 		}
 		age = iAge;
 	}
+
+	Sample(const Sample& copy)
+	{
+		
+			age = copy.age;
+			if (copy.name != nullptr)
+			{
+				name = new char[strlen(copy.name) + 1];
+				strcpy(name, copy.name);
+			}
+	}
+
+	//перемещающий конструктор , предназначен для избегания повторного копирования и падения производительностви.
+	// такой конструктор позволяет избежать глубокого копирования
+
+	Sample(Sample&& moveSample)
+	{
+		if (moveSample.name != nullptr)
+		{
+			name = moveSample.name;
+			moveSample.name = nullptr;
+		}
+	}
+
 	const char* GetName();
 	const int GetAge();
 	const int GetLength();
