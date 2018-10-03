@@ -60,5 +60,8 @@
     <Image Include="RoboRacer2D.ico">
       <Filter>Файлы ресурсов</Filter>
     </Image>
+    <Image Include="resources\background.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
   </ItemGroup>
 </Project>
