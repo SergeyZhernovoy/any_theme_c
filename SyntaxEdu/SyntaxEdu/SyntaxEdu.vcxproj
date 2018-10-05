@@ -152,6 +152,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BaseData.h" />
+    <ClInclude Include="ComplexData.h" />
+    <ClInclude Include="Fish.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PresidentSingleton.h" />
     <ClInclude Include="Sample.h" />

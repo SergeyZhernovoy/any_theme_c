@@ -20,9 +20,10 @@ public:
 		return onlyInstance;
 	}
 
-	string GetName()
+	string GetName(Sample sample)
 	{
-		return name;
+		const string str = sample.name;
+		return name + " say  "+ str;
 	}
 
 	void SetName(string InputName)

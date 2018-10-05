@@ -7,6 +7,7 @@ class Sample
 private:
 	char* name;
 	int age;
+	friend class President;
 public:
 	
 	Sample(const char* initString, int iAge)

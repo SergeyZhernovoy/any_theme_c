@@ -76,14 +76,10 @@ void Sprite::Render()
 		{
 			u = (GLfloat)currentFrame * texWidth;
 		}
-		glTexCoord2f(u, v);
-		glVertex2f(x, y);
-		glTexCoord2f(u + texWidth, v);
-		glVertex2f(x+ w, y);
-		glTexCoord2f(u + texWidth, v + texHeight);
-		glVertex2f(x + w, y + h);
-		glTexCoord2f(u, v + texHeight);
-		glVertex2f(x, y + h);
+		glTexCoord2f(u, v);	glVertex2f(x, y);
+		glTexCoord2f(u + texWidth, v);	glVertex2f(x+ w, y);
+		glTexCoord2f(u + texWidth, v + texHeight);	glVertex2f(x + w, y + h);
+		glTexCoord2f(u, v + texHeight);	glVertex2f(x, y + h);
 		glEnd();
 		if (useTransparency)
 		{
