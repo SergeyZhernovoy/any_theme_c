@@ -25,6 +25,12 @@ public:
 		GLfloat right;
 	};
 
+	enum SpriteState
+	{
+		UP, 
+		DOWN
+	};
+
 protected:
 	GLuint* textures;
 	uint textureIndex;
@@ -43,11 +49,16 @@ protected:
 	bool isActive;
 	bool useTransparency;
 	bool isSpiritSheet;
+	bool m_isClicked;
 
 public:
 	Sprite(const uint numberTextures);
 	~Sprite();
 	void Update(const float delta);
+	void Jump(SpriteState p_state);
+	void IsClicked(const bool p_value) { m_isClicked = p_value; }
+	const bool IsClicked() const { return m_isClicked; }
+
 	void Render();
 
 	const bool AddTexture(const char* fileName, const bool useTransparancey = true);

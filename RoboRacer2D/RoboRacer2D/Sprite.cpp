@@ -22,6 +22,7 @@ Sprite::Sprite(const uint numberTextures)
 	isActive = false;
 	useTransparency = false;
 	isSpiritSheet = false;
+	m_isClicked = false;
 }
 
 Sprite::~Sprite()
@@ -105,4 +106,18 @@ void Sprite::Update(const float delta)
 		}
 		position.x += velocity * dt;
 	}
+}
+
+void Sprite::Jump(SpriteState p_state)
+{
+	if (p_state == SpriteState::DOWN)
+	{
+		if (position.y < 470.0f)
+			position.y += 75.0f;
+	}
+	else if (p_state == SpriteState::UP)
+	{
+		if (position.y >= 470.0f) position.y -= 75.0f;
+	}
+
 }

@@ -32,7 +32,7 @@ public:
 		CM_QUIT
 	};
 
-	#define KEYDOWN(vk_code) ((GetAsyncKeyState(vk_code) & 0x800) ? 1 : 0)
+	#define KEYDOWN(vk_code) ((GetAsyncKeyState(vk_code) & 0x8000) ? 1 : 0)
 
 protected:
 	Command m_command;

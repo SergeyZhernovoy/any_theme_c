@@ -23,11 +23,11 @@ void Input::Update(const float p_deltaTime)
 	{
 		m_command = Command::CM_RIGHT;
 	}
-	if (KEYDOWN(Key::K_UP) || KEYDOWN(Key::K_W) || KEYDOWN(Key::K_LB))
+	if (KEYDOWN(Key::K_UP) || KEYDOWN(Key::K_LB))
 	{
 		m_command = Command::CM_UP;
 	}
-	if (KEYDOWN(Key::K_DOWN) || KEYDOWN(Key::K_S) || KEYDOWN(Key::K_RB))
+	if (KEYDOWN(Key::K_DOWN) || KEYDOWN(Key::K_RB))
 	{
 		m_command = Command::CM_DOWN;
 	}
