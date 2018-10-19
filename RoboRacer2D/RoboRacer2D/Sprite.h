@@ -38,7 +38,7 @@ protected:
 	uint numberFrames;
 	GLfloat animationDelay;
 	GLfloat animationElapsed;
-	Point position;
+	Point m_position;
 	Size size;
 	GLfloat velocity;
 
@@ -50,6 +50,7 @@ protected:
 	bool useTransparency;
 	bool isSpiritSheet;
 	bool m_isClicked;
+	Rect m_collision;
 
 public:
 	Sprite(const uint numberTextures);
@@ -75,14 +76,14 @@ public:
 	}
 	void SetPosition(const GLfloat pX, const GLfloat pY)
 	{
-		position.x = pX;
-		position.y = pY;
+		m_position.x = pX;
+		m_position.y = pY;
 	}
 	void SetPosition(const Point point)
 	{
-		position = point;
+		m_position = point;
 	}
-	const Point GetPosition() { return position;}
+	const Point GetPosition() { return m_position;}
 	const Size GetSize() const { return size;}
 	void SetFrameSize(const GLfloat pWidth, const GLfloat pHeght)
 	{
@@ -121,4 +122,7 @@ public:
 		isActive = value;
 	}
 	void UseTransparency(const bool value) { useTransparency = value;}
+
+	const Rect GetCollisionRect() const;
+	void SetCollisionRectOffset(const Rect p_rect) { m_collision = p_rect;}
 };

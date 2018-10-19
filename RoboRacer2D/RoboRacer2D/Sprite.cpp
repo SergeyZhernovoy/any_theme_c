@@ -10,8 +10,8 @@ Sprite::Sprite(const uint numberTextures)
 	numberFrames =0;
 	animationDelay = 0.25f;
 	animationElapsed = 0.0f;
-	position.x = 0.0f;
-	position.y = 0.0f;
+	m_position.x = 0.0f;
+	m_position.y = 0.0f;
 	size.height = 0.0f;
 	size.width = 0.0f;
 	velocity = 0.0f;
@@ -23,6 +23,10 @@ Sprite::Sprite(const uint numberTextures)
 	useTransparency = false;
 	isSpiritSheet = false;
 	m_isClicked = false;
+	m_collision.left = 0.0f;
+	m_collision.right = 0.0f;
+	m_collision.top = 0.0f;
+	m_collision.bottom = 0.0f;
 }
 
 Sprite::~Sprite()
@@ -52,6 +56,16 @@ const bool Sprite::AddTexture(const char* p_imageName, const bool p_useTranspare
 	return true;
 }
 
+const Sprite::Rect Sprite::GetCollisionRect() const
+{
+	Rect rect;
+	rect.left = m_position.x + m_collision.left;
+	rect.right = m_position.x + size.width + m_collision.right;
+	rect.top = m_position.y + m_collision.top;
+	rect.bottom = m_position.y + size.height + m_collision.bottom;
+	return rect;
+}
+
 void Sprite::Render()
 {
 	if (isVisible)
@@ -63,8 +77,8 @@ void Sprite::Render()
 		}
 		glBindTexture(GL_TEXTURE_2D, GetCurrentFrame());
 		glBegin(GL_QUADS);
-		GLfloat x = position.x;
-		GLfloat y = position.y;
+		GLfloat x = m_position.x;
+		GLfloat y = m_position.y;
 
 		GLfloat w = size.width;
 		GLfloat h = size.height;
@@ -104,7 +118,7 @@ void Sprite::Update(const float delta)
 			}
 			animationElapsed = 0.0f;
 		}
-		position.x += velocity * dt;
+		m_position.x += velocity * dt;
 	}
 }
 
@@ -112,12 +126,14 @@ void Sprite::Jump(SpriteState p_state)
 {
 	if (p_state == SpriteState::DOWN)
 	{
-		if (position.y < 470.0f)
-			position.y += 75.0f;
+		if (m_position.y < 470.0f)
+			m_position.y += 75.0f;
 	}
 	else if (p_state == SpriteState::UP)
 	{
-		if (position.y >= 470.0f) position.y -= 75.0f;
+		if (m_position.y >= 470.0f) m_position.y -= 75.0f;
 	}
 
 }
+
+

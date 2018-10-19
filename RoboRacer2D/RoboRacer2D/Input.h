@@ -1,5 +1,6 @@
 #pragma once
 #include <Windows.h>
+#include "Sprite.h"
 
 class Input
 {
@@ -24,12 +25,14 @@ public:
 
 	enum Command
 	{
+		CM_INVALID,
 		CM_LEFT,
 		CM_RIGHT,
 		CM_STOP,
 		CM_UP,
 		CM_DOWN,
-		CM_QUIT
+		CM_QUIT,
+		CM_UI
 	};
 
 	#define KEYDOWN(vk_code) ((GetAsyncKeyState(vk_code) & 0x8000) ? 1 : 0)
@@ -37,7 +40,8 @@ public:
 protected:
 	Command m_command;
 	HWND m_hWnd;
-
+	Sprite** m_uiElements;
+	unsigned int m_uiCount;
 public:
 	Input(const HWND p_hwnd);
 	~Input();
@@ -46,5 +50,8 @@ public:
 
 	const Command GetCommand() const { return m_command; }
 
+	void AddUiElement(Sprite* p_element);
+
+	const bool CheckForClick(Sprite* p_element) const;
 
 };
