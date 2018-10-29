@@ -21,6 +21,8 @@ public:
 	Tuna()
 	{
 		std::cout << "\nCreate Tuna\n";
+		std::cout << "\nOutput octal " << std::oct << 10 << std::endl;
+		std::cout << "\nOutput hex " << std::hex << 10 << std::endl;
 	}
 	~Tuna()
 	{
