@@ -154,14 +154,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Bow.cpp" />
+    <ClCompile Include="board.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameFunction.cpp" />
     <ClCompile Include="GameFunction.h" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Nation.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bow.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="board.h" />
     <ClInclude Include="Nation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

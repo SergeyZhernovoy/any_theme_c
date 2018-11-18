@@ -4,6 +4,9 @@
 #include <ctime>
 #include <cstdlib>
 #include "Nation.h"
+#include "board.h"
+#include "Game.h"
+
 #define INPUT(a) cin >> a;
 
 using namespace std;
@@ -170,11 +173,11 @@ void add_positive_number()
 
 bool intro(string& name)
 {
-	cout << "\nХрабрый рфцарь !! Как тебя зовут";
+	cout << "\nХрабрый рыцарь !! Как тебя зовут: ";
 	cin >> name;
 	cout << "Нам нужна твоя помощь " << name
-		<< "нашу деревню захватили"
-		<< "гоблины из пещер. Примешь ли ты вызов ? 1) - да 2) нет";
+		<< "\nнашу деревню захватили"
+		<< "\nгоблины из пещер.\n Примешь ли ты вызов ? 1) - да 2) нет	:";
 	int responce = 1;
 	INPUT(responce);
 	return !(responce == 1);
@@ -191,11 +194,16 @@ void room(bool isEnemy, bool treasure, const string& description, string& enemy,
 			cout << "\nЧто ты желаешь сделать ?\n";
 			if (isEnemy)
 			{
-				cout << "\n1) напасть на подлого " << enemy.c_str();
+				cout << "\n1) напасть на подлого\t" << enemy.c_str();
 			}
 			else if (!isEnemy)
 			{
-				cout << "\n2) Перейти в след. комнату\n";
+				cout << "\n1) Перейти в след. комнату\n";
+				
+			}
+			if (treasure)
+			{
+				cout << "\n2) Взять сокровище " << treasure_name.c_str() << endl;
 			}
 			INPUT(response);
 		} while (response < 1 || response > 2);
@@ -223,8 +231,8 @@ void room(bool isEnemy, bool treasure, const string& description, string& enemy,
 void travel_in_cave()
 {
 	string name = "";
-	string enemy_name = "";
-	string treasure_name = "";
+	string enemy_name;
+	string treasure_name;
 
 	const string room1 = "Ты проник через вход в пещеры";
 	const string room2 = "Ты продвигаешься дальше вглубь";
@@ -255,10 +263,39 @@ void civilization()
 	cout << "\nИгрок 2 введите своё имя\n";
 	cin >> temp;
 	Nation nation2(temp);
-	nation1.set_another_nation(&nation2);
 
-	while(nation1.take_turn())
+	while(nation1.take_turn(nation2) && nation2.take_turn(nation1))
 	{
 		
+	}
+}
+
+void tictactoe()
+{
+	GameBoard* gb = new GameBoard;
+	Game game;
+	string player1, player2;
+	cout << "Добро пожаловать в крестики - нолики!"
+		<< "\n Игрок один, введите своё имя: ";
+	INPUT(player1);
+	cout << "\n Игрок два, введите своё имя: ";
+	INPUT(player2);
+	gb->draw();
+	while (gb->isLine() == GameBoard::blank)
+	{
+		gb = game.doInput("один", gb);
+		gb = game.doInput("два", gb);
+		gb->draw();
+	}
+	
+	if (gb->isLine() == GameBoard::X)
+	{
+		cout << "\n Игрок один, вы победили!"
+			<< "\Конец игры";
+	}
+	else
+	{
+		cout << "\n Игрок два, вы победили!"
+			<< "\Конец игры";
 	}
 }

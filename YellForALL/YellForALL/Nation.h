@@ -15,14 +15,10 @@ private:
 	int farmers;
 	int merchants;
 	int blacksmith;
-	void menu();
+	void menu(Nation& other);
 public:
 	int land;
 	int troops;
-	Nation* nation_secon;
-
 	Nation(string name);
-	Nation();
-	bool take_turn();
-	void set_another_nation(Nation* next);
+	bool take_turn(Nation& other);
 };
