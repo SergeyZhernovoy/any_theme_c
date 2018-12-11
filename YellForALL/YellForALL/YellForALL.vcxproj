@@ -159,11 +159,14 @@
     <ClCompile Include="GameFunction.cpp" />
     <ClCompile Include="GameFunction.h" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MenuUtility.cpp" />
     <ClCompile Include="Nation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EduNamespace.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="board.h" />
+    <ClInclude Include="MenuUtility.h" />
     <ClInclude Include="Nation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
