@@ -8,12 +8,14 @@
 #endif //QUIZFIBBO_USER_H
 #include <string>
 
+using namespace std;
 
 class User
 {
 private:
-    std::string name;
+    string name;
 public:
     int GetNumber(int num1, int num2, bool repeate = false);
-    std::string GetName() const;
+    const string GetName() const;
+    void SetName(string name);
 };

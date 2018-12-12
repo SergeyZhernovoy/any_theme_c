@@ -18,7 +18,3 @@ void Game::GameLoop()
         tryFirst = false;
     }
 }
-Game::Game()
-{
-    MAX_TRIES = 3;
-}

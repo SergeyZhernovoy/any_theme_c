@@ -15,10 +15,12 @@ private:
     User user;
     int countRight;
     int countAnswer;
-    const int MAX_TRIES;
+    const int MAX_TRIES = 3;
     std::vector<int>  usersNumber;
 public:
     void GameLoop();
-    Game();
+    Game() {
+        user.SetName("Player");
+    };
 
 };
