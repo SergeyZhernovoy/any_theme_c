@@ -111,17 +111,71 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named QuizFibbo
+# Target rules for targets named Game.h
 
 # Build rule for target.
-QuizFibbo: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 QuizFibbo
-.PHONY : QuizFibbo
+Game.h: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Game.h
+.PHONY : Game.h
 
 # fast build rule for target.
-QuizFibbo/fast:
-	$(MAKE) -f CMakeFiles/QuizFibbo.dir/build.make CMakeFiles/QuizFibbo.dir/build
-.PHONY : QuizFibbo/fast
+Game.h/fast:
+	$(MAKE) -f CMakeFiles/Game.h.dir/build.make CMakeFiles/Game.h.dir/build
+.PHONY : Game.h/fast
+
+Game.o: Game.cpp.o
+
+.PHONY : Game.o
+
+# target to build an object file
+Game.cpp.o:
+	$(MAKE) -f CMakeFiles/Game.h.dir/build.make CMakeFiles/Game.h.dir/Game.cpp.o
+.PHONY : Game.cpp.o
+
+Game.i: Game.cpp.i
+
+.PHONY : Game.i
+
+# target to preprocess a source file
+Game.cpp.i:
+	$(MAKE) -f CMakeFiles/Game.h.dir/build.make CMakeFiles/Game.h.dir/Game.cpp.i
+.PHONY : Game.cpp.i
+
+Game.s: Game.cpp.s
+
+.PHONY : Game.s
+
+# target to generate assembly for a file
+Game.cpp.s:
+	$(MAKE) -f CMakeFiles/Game.h.dir/build.make CMakeFiles/Game.h.dir/Game.cpp.s
+.PHONY : Game.cpp.s
+
+User.o: User.cpp.o
+
+.PHONY : User.o
+
+# target to build an object file
+User.cpp.o:
+	$(MAKE) -f CMakeFiles/Game.h.dir/build.make CMakeFiles/Game.h.dir/User.cpp.o
+.PHONY : User.cpp.o
+
+User.i: User.cpp.i
+
+.PHONY : User.i
+
+# target to preprocess a source file
+User.cpp.i:
+	$(MAKE) -f CMakeFiles/Game.h.dir/build.make CMakeFiles/Game.h.dir/User.cpp.i
+.PHONY : User.cpp.i
+
+User.s: User.cpp.s
+
+.PHONY : User.s
+
+# target to generate assembly for a file
+User.cpp.s:
+	$(MAKE) -f CMakeFiles/Game.h.dir/build.make CMakeFiles/Game.h.dir/User.cpp.s
+.PHONY : User.cpp.s
 
 main.o: main.cpp.o
 
@@ -129,7 +183,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/QuizFibbo.dir/build.make CMakeFiles/QuizFibbo.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/Game.h.dir/build.make CMakeFiles/Game.h.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -138,7 +192,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/QuizFibbo.dir/build.make CMakeFiles/QuizFibbo.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/Game.h.dir/build.make CMakeFiles/Game.h.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -147,7 +201,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/QuizFibbo.dir/build.make CMakeFiles/QuizFibbo.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/Game.h.dir/build.make CMakeFiles/Game.h.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -157,8 +211,14 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... QuizFibbo"
+	@echo "... Game.h"
 	@echo "... edit_cache"
+	@echo "... Game.o"
+	@echo "... Game.i"
+	@echo "... Game.s"
+	@echo "... User.o"
+	@echo "... User.i"
+	@echo "... User.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
