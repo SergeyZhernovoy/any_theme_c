@@ -1,8 +1,9 @@
-cmake_minimum_required(VERSION 2.8)
+# CMakeList.txt: файл проекта CMake верхнего уровн€; проведите глобальную конфигурацию
+# и включите сюда подпроекты.
+#
+cmake_minimum_required (VERSION 3.8)
 
-project(PiratesTowns)
+project ("PiratesTowns")
 
-set(SOURCES PirateTown.cpp MenuUtility.cpp main.cpp )
-SET(HEADERS PirateTown.h MenuUtility.h)
-
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+# ¬ключите подпроекты.
+add_subdirectory ("Game")
