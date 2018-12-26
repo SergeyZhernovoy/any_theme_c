@@ -1,0 +1,1 @@
+/usr/bin/g++    -rdynamic CMakeFiles/LordDragon.dir/dragon.cpp.o CMakeFiles/LordDragon.dir/main.cpp.o  -o LordDragon 
