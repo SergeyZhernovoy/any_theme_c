@@ -3,136 +3,109 @@
 
 #include "pch.h"
 #include <iostream>
+#define print std::cout 
 
 #include "GuessGame.h"
 
 
-// рефакторинг игры
 
-// ввести свои синонимы
+// Что можно сделать 
+// Добавить ИИ , что бы ответы от компьютера формировались в зависимости от корректного чтения с вывода
 
-usin print=std::cout;
+
 void PrintIntro();
 void PlayGame();
 FString GetValidGuess();
-GuessGame GuessNumberGame;
+bool AskToPlayAgain();
+void PrintGameSummary();
+GuessGame GameEntity;
 
 int main()
 {
+	setlocale(LC_ALL, "Russian");
     bool bPlayAgain = false;
     do
     {
        PrintIntro();
+	   PlayGame();
+	   bPlayAgain = AskToPlayAgain();
     }
     while(bPlayAgain);
     return 0;
-
-
-
-
-
-
-
-
-	enum sideRandom {COMPUTER, HUMAN};
-	sideRandom side = COMPUTER;
-	cout << "Who will make number ?\n 0 - computer\n 1 -human\n>";
-	int choice;
-	cin >> choice;
-	switch (choice)
-	{ 
-	case COMPUTER:
-		side = COMPUTER;
-		break;
-	case HUMAN:
-		side = HUMAN;
-		break;
-	default:
-		break;
-	}
-	int secretNumber;
-	int tries = 0;
-	int guess;
-	if (choice == COMPUTER) {
-		srand(static_cast<unsigned int>(time(0)));
-		secretNumber = rand() % 100 + 1;
-		tries = 0;
-		guess;
-
-		do
-		{
-			cout << "Enter a guess:";
-			cin >> guess;
-			tries++;
-
-			if (guess > secretNumber)
-			{
-				cout << "Too high!\n\n";
-			}
-			else if (guess < secretNumber)
-			{
-				cout << "Too low!\n\n";
-			}
-			else
-			{
-				cout << "\nThat's it ! You got it in " << tries << " guesses!\n";
-			}
-		} while (guess != secretNumber);
-	}
-	else
-	{
-		cout << "\n\nPlease enter number:";
-		cin >> secretNumber;
-		
-		int range = 100;
-		do
-		{
-			srand(static_cast<unsigned int>(time(0)));
-			guess = rand() % range + 1;
-			tries++;
-			cout << "A guess is " << guess << endl;
-			if (guess > secretNumber)
-			{
-				cout << "Too high!\n\n";
-			}
-			else if (guess < secretNumber)
-			{
-				cout << "Too low!\n\n";
-			}
-			else
-			{
-				cout << "\nThat's it ! You got it in " << tries << " guesses!\n";
-			}
-		} while (guess != secretNumber);
-
-
-
-	}
-	
-
-	return 0;
 }
 
 void PlayGame()
 {
-    GuessNumberGame.ResetGame();
-    while(!GuessNumberGame.isGameWin() && GuessNumberGame.GetCurrentAttempt() <= GuessNumberGame.GetMaxTries())
+    GameEntity.ResetGame();
+	GameEntity.SetRandomNumber();
+    while(!GameEntity.IsGameWin() && GameEntity.GetCurrentAttempt() <= GameEntity.GetMaxTries())
     {
-        FString GuessNumber = GetValidGuess();
-
+		FString GuessNumber = GetValidGuess();
+		GameEntity.SubmitValidGuess(GuessNumber);
     }
+	PrintGameSummary();
 }
 
+FString GetValidGuess()
+{
+	EGuessStatus Status = EGuessStatus::Invalid_Type;
+	FString Guess;
+	do
+	{
+		int32 CurrentTry = GameEntity.GetCurrentAttempt();
+		std::cout << "Try " << CurrentTry << " of " << GameEntity.GetMaxTries();
+		std::cout << ". Enter your guess : ";
+
+		if (GameEntity.GetSide() == Side::Human)
+		{
+			getline(std::cin, Guess);
+		}
+		else
+		{
+			srand(static_cast<unsigned int>(time(0)));
+			int32 RandomGuess = rand() % 100 + 1;
+			Guess = std::to_string(RandomGuess);
+		}
+
+		Status = GameEntity.CheckValidGuess(Guess);
+		switch (Status)
+		{
+		case EGuessStatus::Invalid_Type:
+			std::cout << "Please enter a integer number.\n\n";
+			break;
+		default:
+			break;
+		}
+	}
+	while (Status != EGuessStatus::Ok);
+	return Guess;
+}
 
 void PrintIntro()
 {
-   print << "Welcome to Guess My Number\n\n";
-   print <<"Правила игры: \n";
-   print << "Игрок и компьютер по очереди угадывают число\n";
+	print << "Добро пожаловать в игру - УГАДАЙ ЧИСЛО\n\n";
+	print <<"Правила игры: \n";
+	print << "Игрок и компьютер по очереди угадывают число\n";
    return;
 }
 
-int getNumber()
+bool AskToPlayAgain()
 {
-	return 0;
-};
+	std::cout << "Do you want to play again (y/n) ? ";
+	FString Response = "";
+	getline(std::cin, Response);
+	return (Response[0] == 'y') || (Response[0] == 'Y');
+}
+
+void PrintGameSummary()
+{
+	if (GameEntity.IsGameWin())
+	{
+		std::cout << "WELL DONE... YOU WIN!\n";
+	}
+	else
+	{
+		std::cout << "Better luck next time!\n";
+	}
+	return;
+}

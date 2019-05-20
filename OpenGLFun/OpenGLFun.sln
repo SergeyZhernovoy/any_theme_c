@@ -3,24 +3,36 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenGLFun", "OpenGLFun\OpenGLFun.vcxproj", "{43716EA6-5D22-4787-928B-7D38B9A8D626}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenGLFun", "OpenGLFun\OpenGLFun.vcxproj", "{88BF106A-4952-4760-BC9E-05C90455D7BA}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupOGL", "SetupOGL\SetupOGL.vdproj", "{BBBE3BA1-B450-4EB0-9CD3-8EC32D1215FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{43716EA6-5D22-4787-928B-7D38B9A8D626}.Debug|x64.ActiveCfg = Debug|x64
-		{43716EA6-5D22-4787-928B-7D38B9A8D626}.Debug|x64.Build.0 = Debug|x64
-		{43716EA6-5D22-4787-928B-7D38B9A8D626}.Debug|x86.ActiveCfg = Debug|Win32
-		{43716EA6-5D22-4787-928B-7D38B9A8D626}.Debug|x86.Build.0 = Debug|Win32
-		{43716EA6-5D22-4787-928B-7D38B9A8D626}.Release|x64.ActiveCfg = Release|x64
-		{43716EA6-5D22-4787-928B-7D38B9A8D626}.Release|x64.Build.0 = Release|x64
-		{43716EA6-5D22-4787-928B-7D38B9A8D626}.Release|x86.ActiveCfg = Release|Win32
-		{43716EA6-5D22-4787-928B-7D38B9A8D626}.Release|x86.Build.0 = Release|Win32
+		{88BF106A-4952-4760-BC9E-05C90455D7BA}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{88BF106A-4952-4760-BC9E-05C90455D7BA}.Debug|x64.ActiveCfg = Debug|Win32
+		{88BF106A-4952-4760-BC9E-05C90455D7BA}.Debug|x64.Build.0 = Debug|Win32
+		{88BF106A-4952-4760-BC9E-05C90455D7BA}.Debug|x86.ActiveCfg = Debug|Win32
+		{88BF106A-4952-4760-BC9E-05C90455D7BA}.Debug|x86.Build.0 = Debug|Win32
+		{88BF106A-4952-4760-BC9E-05C90455D7BA}.Release|Any CPU.ActiveCfg = Release|Win32
+		{88BF106A-4952-4760-BC9E-05C90455D7BA}.Release|x64.ActiveCfg = Release|x64
+		{88BF106A-4952-4760-BC9E-05C90455D7BA}.Release|x64.Build.0 = Release|x64
+		{88BF106A-4952-4760-BC9E-05C90455D7BA}.Release|x86.ActiveCfg = Release|Win32
+		{88BF106A-4952-4760-BC9E-05C90455D7BA}.Release|x86.Build.0 = Release|Win32
+		{BBBE3BA1-B450-4EB0-9CD3-8EC32D1215FE}.Debug|Any CPU.ActiveCfg = Debug
+		{BBBE3BA1-B450-4EB0-9CD3-8EC32D1215FE}.Debug|x64.ActiveCfg = Debug
+		{BBBE3BA1-B450-4EB0-9CD3-8EC32D1215FE}.Debug|x86.ActiveCfg = Debug
+		{BBBE3BA1-B450-4EB0-9CD3-8EC32D1215FE}.Release|Any CPU.ActiveCfg = Release
+		{BBBE3BA1-B450-4EB0-9CD3-8EC32D1215FE}.Release|x64.ActiveCfg = Release
+		{BBBE3BA1-B450-4EB0-9CD3-8EC32D1215FE}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

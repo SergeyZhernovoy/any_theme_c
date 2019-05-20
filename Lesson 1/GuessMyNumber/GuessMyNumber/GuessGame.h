@@ -1,5 +1,7 @@
 #include <cstdlib>
 #include <ctime>
+#include <string>
+#include <iostream>
 
 #ifndef GUESSGAME_H
 #define GUESSGAME_H
@@ -22,24 +24,31 @@ enum class EGuessStatus
     Ok
 };
 
+struct CheckNumber
+{
+	int32 Number;
+	bool  IsNumber;
+};
+
+
 class GuessGame
 {
     public:
         int32 GetCurrentAttempt() const;
-        bool isGameWin() const;
-        GuessGame(uint32);
-        void StartGame();
-        void SetNumber(int32);
+        bool IsGameWin() const;
+        GuessGame();
+		Side GetSide() const;
+        void SetRandomNumber();
         void ResetGame();
         int32 GetMaxTries() const;
         EGuessStatus CheckValidGuess(FString);
+		void SubmitValidGuess(FString);
     private:
         int32 CurrentAttempt;
         bool bIsGameWin;
         int32 RandomNumber;
         Side first;
         void SetSide();
-        bool IsNumber(FString) const;
+		CheckNumber IsNumber(FString) const;
 
-}
-
+};
