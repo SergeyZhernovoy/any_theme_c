@@ -9,7 +9,7 @@ namespace menuNamespace
 	{
 		int userResponce = strArray.size();
 		cout << "Варианты:\n";
-		while(userResponce < 0 || userResponce >= strArray.size()-1)
+		while(userResponce > strArray.size()-1)
 		{
 			int number = 0;
 			for(vector<string>::const_iterator iter = strArray.begin(); iter != strArray.end(); iter++)
