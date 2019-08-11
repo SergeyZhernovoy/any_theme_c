@@ -6,5 +6,5 @@ class Game
 {
 public:
 	GameBoard* doInput(std::string player, GameBoard* gb);
-	bool inRange(int test);
+	bool inRange(int test) const;
 };

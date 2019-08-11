@@ -10,12 +10,12 @@ void GameBoard::setO(int h, int w)
 	board[h * HEIGHT + w] = O;
 }
 
-bool GameBoard::isTaken(int h, int w)
+bool GameBoard::isTaken(int h, int w) const
 {
 	return *(board + h * HEIGHT + w) != blank;
 }
 
-GameBoard::state GameBoard::isLine()
+GameBoard::state GameBoard::isLine() const
 {
 	if (*board == X && *(board + 1) == X && *(board + 2) == X)
 		return X;
@@ -53,7 +53,7 @@ GameBoard::state GameBoard::isLine()
 
 }
 
-void GameBoard::draw()
+void GameBoard::draw() const
 {
 	std::cout << std::endl;
 	for (int i = 0; i < HEIGHT; i++)

@@ -47,7 +47,7 @@ GameBoard* Game::doInput(std::string player, GameBoard * gb)
 	return gb;
 }
 
-bool Game::inRange(int test)
+bool Game::inRange(int test) const
 {
 	return test > -1 && test < 3;
 }

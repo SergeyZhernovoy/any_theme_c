@@ -21,9 +21,9 @@ public:
 	~GameBoard() { delete[] board;}
 	void setX(int h, int w);
 	void setO(int h, int w);
-	bool isTaken(int h, int w);
-	state isLine();
-	void draw();
+	bool isTaken(int h, int w) const;
+	state isLine() const;
+	void draw() const;
 };
 
 
