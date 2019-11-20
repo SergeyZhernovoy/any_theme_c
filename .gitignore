@@ -1,8 +1,8 @@
 # Compiled Object files
-*/*.slo
-*/*.lo
-*/*.o
-*/*.obj
+*.slo
+*.lo
+*.o
+*.obj
 
 # Precompiled Headers
 *.gch
@@ -11,37 +11,37 @@
 *.db
 
 # Compiled Dynamic libraries
-*/*.so
-*/*.dylib
-*/*.dll
+*.so
+*.dylib
+*.dll
 
 
 # Compiled Static libraries
-*/*.lai
-*/*.la
-*/*.a
-*/*.lib
+*.lai
+*.la
+*.a
+*.lib
 
 # Executables
-*/*.exe
-*/*.out
-*/*.app
+*.exe
+*.out
+*.app
 
 # Backup/temporary files:
 */*~
-*/*.bak
-*/.*.swp
-*/*.log
-*/*.out
+*.bak
+*.swp
+*.log
+*.out
 
 # Generated binary files:
-*/*.o
-*/*.lo
-*/*.a
-*/*.la
-*/*.gmo
-*/*.pyc
-*/*.wz
+*.o
+*.lo
+*.a
+*.la
+*.gmo
+*.pyc
+*.wz
 # Doxygen files
 /doc/code/html
 # windows generated binary files:
@@ -68,24 +68,24 @@
 
 
 #misc (MSVC)
-*/*.orig
-*/*.bak
-*/*.exe
-*/*.obj
-*/*.suo
-*/*.ncb
-*/*.htm
-*/*.mep
-*/*.manifest
-*/*.res
-*/*.idb
-*/*.pdb
-*/*.diff
-*/*.dep
-*/*.user
-*/*.lib
-*/*.dll
-*/*.lastcodeanalysissucceeded
+*.orig
+*.bak
+*.exe
+*.obj
+*.suo
+*.ncb
+*.htm
+*.mep
+*.manifest
+*.res
+*.idb
+*.pdb
+*.diff
+*.dep
+*.user
+*.lib
+*.dll
+*.lastcodeanalysissucceeded
 
 
 */Debug
@@ -99,3 +99,4 @@
 *.obj
 *.aps
 *.log
+*.dll

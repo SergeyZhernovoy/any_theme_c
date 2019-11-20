@@ -1,21 +1,24 @@
 #include "board.h"
 
+#define X SquareState::X
+#define O SquareState::O 
+
 void GameBoard::setX(int h, int w)
 {
-	board[h * HEIGHT + w] = X;
+	*(board + h * HEIGHT + w) = X;
 }
 
 void GameBoard::setO(int h, int w)
 {
-	board[h * HEIGHT + w] = O;
+	*(board + h * HEIGHT + w) = O;
 }
 
 bool GameBoard::isTaken(int h, int w) const
 {
-	return *(board + h * HEIGHT + w) != blank;
+	return *(board + h * HEIGHT + w) != SquareState::Empty;
 }
 
-GameBoard::state GameBoard::isLine() const
+SquareState GameBoard::isLine() const
 {
 	if (*board == X && *(board + 1) == X && *(board + 2) == X)
 		return X;
@@ -49,7 +52,7 @@ GameBoard::state GameBoard::isLine() const
 		return X;
 	if (*(board + 2) == O && *(board + 4) == O && *(board + 6) == O)
 		return O;
-	return blank;
+	return SquareState::Empty;
 
 }
 
@@ -58,12 +61,12 @@ void GameBoard::draw() const
 	std::cout << std::endl;
 	for (int i = 0; i < HEIGHT; i++)
 	{
-		std::cout << (char)board[i * HEIGHT];
+		std::cout << (char)*(board + i * HEIGHT);
 		for (int j = 1; j < WIDTH ; j++)
 		{
-			std::cout << " | " << (char)board[i*WIDTH + j];
-			std::cout << std::endl << "--------------" << std::endl;
+			std::cout << " | " << (char)*(board + i * WIDTH + j);
 		}
+		std::cout << std::endl << "-----------" << std::endl;
 	}
 
 }

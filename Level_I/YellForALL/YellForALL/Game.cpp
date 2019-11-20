@@ -22,15 +22,14 @@ GameBoard* Game::doInput(std::string player, GameBoard * gb)
 	{
 		do
 		{
-			std::cout << "Игрок " << player.c_str()
+			std::cout << "\nИгрок " << player.c_str()
 				<< " , пожалуйста, введите номер ряда для "
 				<< letter.c_str() << ": ";
 			std::cin >> input1;
 		} while (!inRange(input1));
 		do
 		{
-			std::cout << "Игрок " << player.c_str()
-				<< " , пожалуйста, введите номер колонки для "
+			std::cout << "\n Пожалуйста, введите номер колонки для "
 				<< letter.c_str() << ": ";
 			std::cin >> input2;
 		} while (!inRange(input2));

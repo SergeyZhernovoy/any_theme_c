@@ -1,6 +1,13 @@
 #pragma once
 #include <iostream>
 
+enum SquareState 
+{
+	Empty = ' ', 
+	X = 'X', 
+	O = 'O'
+};
+
 class GameBoard
 {
 private:
@@ -8,13 +15,13 @@ private:
 	const int HEIGHT;
 	int* board;
 public:
-	enum state { blank = ' ', X = 'X', O = 'O' };
+	enum state { };
 	GameBoard() : WIDTH(3), HEIGHT(3)
 	{
 		board = new int[9];
 		for (int i = 0; i < 9; i++)
 		{
-			board[i] = blank;
+			*(board + i) = SquareState::Empty;
 		}
 	}
 
@@ -22,7 +29,7 @@ public:
 	void setX(int h, int w);
 	void setO(int h, int w);
 	bool isTaken(int h, int w) const;
-	state isLine() const;
+	SquareState isLine() const;
 	void draw() const;
 };
 

@@ -11,6 +11,8 @@
 
 using namespace std;
 
+char* welcome = "\nДобро пожаловать";
+
 void cry(string& yell)
 {
 	cout << yell.c_str() << endl
@@ -94,7 +96,8 @@ void circle()
 	typedef  float F;
 	const F PI = 3.141592;
 	F radius, circumference, area;
-	cout << "\nДобро пожаловать в программу создания кругов!\n";
+
+	cout <<welcome<<" в программу создания кругов!\n";
 	cout << "\nКакой изволите определить\n" 
 	     << "радиус для круга ? ";
 	cin >> radius;
@@ -129,7 +132,7 @@ void find_number()
 	int numPicked = rand() % 100 + 1;
 	int guess = 0;
 	int guessNum = 0;
-	cout << "\n Добро пожаловать в игру \"Уагадай число\"!!!\n";
+	cout << welcome<<" в игру \"Угадай число\"!!!\n";
 	cout << "\nЯ загадал число от 1 до 100 \n\n";
 	for (guessNum = 0; guess != numPicked; guessNum++)
 	{
@@ -249,22 +252,21 @@ void travel_in_cave()
 		treasure_name = "груда сокровищ";
 		room(true, true, room3, enemy_name, treasure_name);
 	}
-
 }
 
 void civilization()
 {
 	string temp;
-	cout << "\nДобро пожаловать в игру Завоевание\n";
+	cout <<welcome<< " в игру завоевания\n";
 	cout << "\nИгрок 1 введите своё имя\n";
 	cin >> temp;
-	Nation nation1(temp);
-	cout << "\nДобро пожаловать в игру Завоевание\n";
+	Nation nation1 = Nation(temp);
+	cout << "\nДобро пожаловать в игру завоевание\n";
 	cout << "\nИгрок 2 введите своё имя\n";
 	cin >> temp;
-	Nation nation2(temp);
+	Nation nation2 = Nation(temp);
 
-	while(nation1.take_turn(nation2) && nation2.take_turn(nation1))
+	while(nation1.takeTurn(nation2) && nation2.takeTurn(nation1))
 	{
 		
 	}
@@ -275,27 +277,27 @@ void tictactoe()
 	GameBoard* gb = new GameBoard;
 	Game game;
 	string player1, player2;
-	cout << "Добро пожаловать в крестики - нолики!"
-		<< "\n Игрок один, введите своё имя: ";
+	cout <<welcome<<" в крестики - нолики!"
+		<< "\nИгрок один, введите своё имя: ";
 	INPUT(player1);
-	cout << "\n Игрок два, введите своё имя: ";
+	cout << "\nИгрок два, введите своё имя: ";
 	INPUT(player2);
 	gb->draw();
-	while (gb->isLine() == GameBoard::blank)
+	while (gb->isLine() == SquareState::Empty)
 	{
 		gb = game.doInput("один", gb);
 		gb = game.doInput("два", gb);
-		gb->draw();
+		
 	}
-	
-	if (gb->isLine() == GameBoard::X)
+	gb->draw();
+	if (gb->isLine() == SquareState::X)
 	{
-		cout << "\n Игрок один, вы победили!"
-			<< "\Конец игры";
+		cout << "\nИгрок один, вы победили!"
+			<< "\nКонец игры";
 	}
 	else
 	{
-		cout << "\n Игрок два, вы победили!"
-			<< "Конец игры";
+		cout << "\nИгрок два, вы победили!"
+			<< "\nКонец игры";
 	}
 }

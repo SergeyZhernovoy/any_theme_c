@@ -1,5 +1,7 @@
 #include "Nation.h"
 
+
+
 Nation::Nation(string name) :
 	name(name), land(20), food(50), troops(15),
 	gold(100), people(100), farmers(0), merchants(0), blacksmith(0)
@@ -7,19 +9,19 @@ Nation::Nation(string name) :
 	
 }
 
-bool Nation::take_turn(Nation& other)
+bool Nation::takeTurn(Nation& enemy)
 {
 	INFO("\nХод " << name << endl);
 	people += land * 0.2;
 	food += farmers - people * 0.25;
 	troops += blacksmith;
-	menu(other);
-	if (land <= 0 || other.land <= 0)
+	menu(enemy);
+	if (land <= 0 || enemy.land <= 0)
 		return false;
 	return true;
 }
 
-void Nation::menu(Nation& other)
+void Nation::menu(Nation& enemy)
 {
 	while (true)
 	{
@@ -66,17 +68,17 @@ void Nation::menu(Nation& other)
 			break;
 		case 5:
 			INFO(" Сражение затянулось до поздней ночи, и все погибли \n");
-			if (troops < other.troops)
+			if (troops < enemy.troops)
 			{
-				other.land += 10;
+				enemy.land += 10;
 				land -= 10;
 			}
-			else if (troops > other.troops)
+			else if (troops > enemy.troops)
 			{
-				other.land -= 10;
+				enemy.land -= 10;
 				land += 10;
 			}
-			other.land = 0;
+			enemy.land = 0;
 			land = 0;
 			break;
 		case 6:
