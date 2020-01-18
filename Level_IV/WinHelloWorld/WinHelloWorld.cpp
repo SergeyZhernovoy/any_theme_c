@@ -16,7 +16,6 @@ WCHAR szWindowClass[MAX_LOADSTRING];            // имя класса глав�
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
-INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
@@ -132,9 +131,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             // Разобрать выбор в меню:
             switch (wmId)
             {
-            case IDM_ABOUT:
-                DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-                break;
             case IDM_EXIT:
                 DestroyWindow(hWnd);
                 break;
@@ -153,31 +149,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         }
         break;
     case WM_DESTROY:
-        MessageBoxA(NULL, "Bye bye chmo!!", "First window", MB_OKCANCEL | MB_ICONINFORMATION);
+        MessageBoxA(NULL, "Bye bye !!!", "First window", MB_OKCANCEL | MB_ICONINFORMATION);
         PostQuitMessage(0);
         break;
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
     return 0;
-}
-
-// Обработчик сообщений для окна "О программе".
-INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
-{
-    UNREFERENCED_PARAMETER(lParam);
-    switch (message)
-    {
-    case WM_INITDIALOG:
-        return (INT_PTR)TRUE;
-
-    case WM_COMMAND:
-        if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
-        {
-            EndDialog(hDlg, LOWORD(wParam));
-            return (INT_PTR)TRUE;
-        }
-        break;
-    }
-    return (INT_PTR)FALSE;
 }
